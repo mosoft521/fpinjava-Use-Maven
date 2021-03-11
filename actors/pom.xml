@@ -5,29 +5,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.fpinjava</groupId>
-    <artifactId>fpinjava</artifactId>
-    <packaging>pom</packaging>
+    <artifactId>actors</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <modules>
-        <module>introduction</module>
-        <module>functions</module>
-        <module>common</module>
-        <module>makingjavafunctional</module>
-        <module>recursion</module>
-        <module>lists</module>
-        <module>optionaldata</module>
-        <module>handlingerrors</module>
-        <module>advancedlisthandling</module>
-        <module>laziness</module>
-        <module>trees</module>
-        <module>advancedtrees</module>
-        <module>state</module>
-        <module>io</module>
-        <module>actors</module>
-        <module>applications</module>
-    </modules>
 
-    <name>fpinjava</name>
+    <name>actors</name>
     <url>https://github.com/mosoft521/fpinjava-Use-Maven</url>
 
     <properties>
@@ -36,16 +17,20 @@
         <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.11</version>
-                <scope>test</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.fpinjava</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <!--test-->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
