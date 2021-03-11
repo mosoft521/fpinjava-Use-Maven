@@ -12,18 +12,18 @@ public class Payment {
         this.amount = amount;
     }
 
-    public static List<Payment> groupByCard(List<Payment> payments) {
-        return payments
-                .groupBy(x -> x.creditCard)
-                .values()
-                .map(x -> x.reduce(c1 -> c1::combine));
-    }
-
     public Payment combine(Payment payment) {
         if (creditCard.equals(payment.creditCard)) {
             return new Payment(creditCard, amount + payment.amount);
         } else {
             throw new IllegalStateException("Cards don't match.");
         }
+    }
+
+    public static List<Payment> groupByCard(List<Payment> payments) {
+        return payments
+                .groupBy(x -> x.creditCard)
+                .values()
+                .map(x -> x.reduce(c1 -> c1::combine));
     }
 }

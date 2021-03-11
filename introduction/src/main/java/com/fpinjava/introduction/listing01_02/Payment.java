@@ -1,7 +1,6 @@
 package com.fpinjava.introduction.listing01_02;
 
 public class Payment {
-
     public final CreditCard creditCard;
     public final int amount;
 

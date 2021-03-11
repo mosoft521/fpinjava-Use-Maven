@@ -1,7 +1,6 @@
 package com.fpinjava.introduction.listing01_02;
 
 public class Tuple<T, U> {
-
     public final T _1;
     public final U _2;
 

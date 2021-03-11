@@ -10,9 +10,9 @@ public class DonutShopTest {
     @Test
     public void testBuyCoffee() {
         CreditCard crediCard = new CreditCard();
+        assertEquals(0, crediCard.getTotal());
         buyDonut(crediCard);
         buyDonut(crediCard);
         assertEquals(Donut.price * 2, crediCard.getTotal());
     }
-
 }
