@@ -18,8 +18,8 @@ public class FunctionExamples {
         }
     };
 
-    public static final Function<Integer, Integer> compose(final Function<Integer, Integer> f1,
-                                                           final Function<Integer, Integer> f2) {
+    public static Function<Integer, Integer> compose(final Function<Integer, Integer> f1,
+                                                     final Function<Integer, Integer> f2) {
         return new Function<Integer, Integer>() {
 
             @Override

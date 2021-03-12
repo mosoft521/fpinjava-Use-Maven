@@ -18,7 +18,7 @@ public class FunctionExamples {
         }
     };
 
-    public static final Function compose(final Function f1, final Function f2) {
+    public static Function compose(final Function f1, final Function f2) {
         return new Function() {
 
             @Override

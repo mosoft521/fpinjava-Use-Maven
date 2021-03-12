@@ -16,6 +16,7 @@ public class IfElse {
                         return y._1;
                     }
                 };
+        Function<Tuple<Boolean, T>, Boolean> f1_2 = y -> y._1;
 
         Function<List<Tuple<Boolean, T>>, Result<Tuple<Boolean, T>>> f2 =
                 new Function<List<Tuple<Boolean, T>>, Result<Tuple<Boolean, T>>>() {
@@ -23,6 +24,7 @@ public class IfElse {
                         return x.first(f1);
                     }
                 };
+        Function<List<Tuple<Boolean, T>>, Result<Tuple<Boolean, T>>> f2_2 = x -> x.first(f1_2);
 
         Function<Tuple<Boolean, T>, T> f3 =
                 new Function<Tuple<Boolean, T>, T>() {
@@ -31,11 +33,19 @@ public class IfElse {
                     }
                 };
 
-        Result<List<Tuple<Boolean, T>>> temp1 = conditions.zip(ifTrue);
-        Result<Tuple<Boolean, T>> temp2 = temp1.flatMap(f2);
-        Result<T> temp3 = temp2.map(f3);
-        T result = temp3.getOrElse(ifFalse);
-        return result;
+        Function<Tuple<Boolean, T>, T> f3_2 = x -> x._2;
+
+//        Result<List<Tuple<Boolean, T>>> temp1 = conditions.zip(ifTrue);
+//        Result<Tuple<Boolean, T>> temp2 = temp1.flatMap(f2);
+//        Result<T> temp3 = temp2.map(f3);
+//        T result = temp3.getOrElse(ifFalse);
+//        return result;
+        //another version:
+        return conditions.zip(ifTrue)
+                .flatMap(f2)
+                .map(f3)
+                .getOrElse(ifFalse);
+
     }
 
 }
